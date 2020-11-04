@@ -24,7 +24,12 @@ window.addEventListener("load", () => {
             var slc1 = e.slice(strln1 - 10, strln1);
             var mtc1 = "@gmail.com";
             var include1 = slc1.includes(mtc1);
-            console.log(include1, strln1);
+            if (include1 == true) {
+              
+            } else {
+              var alert_3 = "Please enter a valid gmail below!";
+              alert(alert_3);
+            }
           } else {
             var alert_2 = "Please enter a valid gmail below!";
             alert(alert_2);
