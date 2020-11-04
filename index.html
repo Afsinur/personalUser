@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Use it!</title>
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <!-- 
+      0. clip-path
+      1. Loading,
+      2. App,
+      3. NavBar,
+      4. EnterBox,
+      5. Viewer,
+      6. User,
+     -->
+    <!-- 0. clip-path -->
+    <div class="clipPath"></div>
+    <!-- 1. Loading -->
+    <div class="loadingContainer">
+      <div class="loadingUp">
+        <div></div>
+      </div>
+    </div>
+    <!-- 2. App -->
+    <div id="app" style="display: none">
+      <!-- 3. NavBar -->
+      <div class="navbar">
+        <div class="navUsername">
+          <h2>
+            <span><a href="index.html">{{userName}}</a></span>
+          </h2>
+        </div>
+      </div>
+      <!-- 4. EnterBox -->
+      <div v-show="!conditions.hideWhiteDivData" class="darkS">
+        <div class="enterBox">
+          <div>
+            <p>Enter this site as a..</p>
+          </div>
+          <div class="enterBoxBtnDv">
+            <button @click="hideWhiteDiv(0)">Viewer</button>
+            <button @click="hideWhiteDiv(1)">User</button>
+          </div>
+        </div>
+      </div>
+      <!-- 5. Viewer -->
+      <div v-show="conditions.fromLeft" class="viewerGo">
+        <div>
+          <p>Viewer activities</p>
+          <input type="text" placeholder="gmail.." v-model="userForm.idGmail" />
+          <button @click.prevent="viwerGoSubmit(userForm.idGmail)">Go</button>
+        </div>
+      </div>
+      <!-- 6. User -->
+      <div v-show="conditions.fromRight" class="userGo">
+        <div>
+          <p>User activities</p>
+          <form
+            @submit.prevent="userGoSubmited(userForm.idText, userForm.idPassword)"
+          >
+            <input
+              type="text"
+              placeholder="ID"
+              required
+              v-model="userForm.idText"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              v-model="userForm.idPassword"
+            />
+            <input type="submit" value="Enter" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--
+      Vue sources are here..
+    -->
+    <!-- 
+      The core Firebase JS SDK is always required and must be listed first 
+    -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+
+    <!--
+      setup#available-libraries
+    
+    -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+
+      var firebaseConfig = {
+        apiKey: "AIzaSyAN-CfkGZl6p4zTDCe24Hyrlf4JSZ9oDoY",
+        authDomain: "muhammad-59311.firebaseapp.com",
+        databaseURL: "https://muhammad-59311.firebaseio.com",
+        projectId: "muhammad-59311",
+        storageBucket: "muhammad-59311.appspot.com",
+        messagingSenderId: "843864151914",
+        appId: "1:843864151914:web:4b6285750284d37406f713",
+        measurementId: "G-QV5TK81LXT",
+      };
+
+      // Initialize Firebase
+
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      const db = firebase.firestore();
+    </script>
+    <!-- vue js starts from here.. -->
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./js/index.js"></script>
+    <!-- ----------------0---------------- -->
+  </body>
+</html>

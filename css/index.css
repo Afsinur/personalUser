@@ -1,0 +1,315 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+body {
+  background-color: #eeeeee;
+  overflow: hidden;
+}
+::selection {
+  background: rgba(0, 255, 145, 1);
+}
+/*
+-1. clipPathCss.
+0. loadingUpCss.
+1. navbarCss.
+2. enterBoxCss.
+3. viewerGoCss.
+4. userGoCss.
+*/
+/*
+-1. clipPathCss.
+*/
+.clipPath {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 145, 1) 0%,
+    rgba(0, 255, 209, 1) 42%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  height: 100vh;
+  width: 100%;
+  clip-path: polygon(70% 0, 100% 0, 100% 100%, 33% 100%);
+}
+/*
+0. loadingUpCss.
+*/
+.loadingContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.loadingUp {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  border: 8px solid #0075ef;
+  border-radius: 50%;
+  z-index: 9999;
+  animation: loading 800ms linear infinite;
+}
+.loadingUp > div {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  height: 50px;
+  width: 50px;
+  border-top: 8px solid #0cf;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-radius: 50%;
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*
+1. navbarCss.
+*/
+.navbar {
+  position: relative;
+  background-color: #fdfdfdfd;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  margin: 5px;
+  padding: 5px;
+}
+.navbar h2 {
+  padding: 5px;
+}
+.navbar h2 span {
+  padding: 5px;
+  border-radius: 4px;
+  transition: background-color 150ms ease-in-out;
+}
+.navbar h2 span a {
+  text-decoration: none;
+  color: #303030;
+}
+.navbar h2 span:hover {
+  background-color: #eaeaea;
+}
+/*
+2. enterBoxCss.
+*/
+.darkS {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.enterBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fefefe;
+  border-radius: 4px;
+  padding: 25px 50px;
+  border-top: 15px solid #0af;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+.enterBox p {
+  font-size: 22px;
+  color: #303030;
+  font-weight: 500;
+}
+.enterBoxBtnDv {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin-top: 25px;
+}
+.enterBox button {
+  font-size: 20px;
+  color: #303030;
+  font-weight: 400;
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  background-image: linear-gradient(
+    90deg,
+    rgba(219, 223, 222, 1) 0%,
+    rgba(14, 252, 222, 1) 50%,
+    rgba(0, 255, 119, 1) 100%
+  );
+  background-size: 200% auto;
+  transition: all 250ms ease-in-out;
+}
+.enterBoxBtnDv > button:last-child {
+  margin-left: 15px;
+}
+.enterBoxBtnDv > button:hover {
+  background-position: right center;
+}
+/*
+3. viewerGoCss.
+*/
+.viewerGo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  animation: fromLeft 800ms ease-in-out forwards;
+}
+.viewerGo > div {
+  position: relative;
+  padding: 10px;
+  background: #fefefe;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  border-top: 15px solid #0af;
+}
+.viewerGo > div > p {
+  font-size: 22px;
+  font-weight: 500;
+  color: #303030;
+  margin: 0 0 15px 0;
+}
+.viewerGo > div > input {
+  padding: 5px;
+  font-size: 20px;
+  color: #303030;
+  font-weight: 400;
+  margin: 10px 0;
+  border: 2px solid #eaeaea;
+  border-radius: 4px;
+}
+.viewerGo > div > button {
+  padding: 5px;
+  font-size: 20px;
+  color: #303030;
+  font-weight: 400;
+  margin: 5px 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  background-image: linear-gradient(
+    90deg,
+    rgba(219, 223, 222, 1) 0%,
+    rgba(14, 252, 222, 1) 50%,
+    rgba(0, 255, 119, 1) 100%
+  );
+  background-size: 200% auto;
+  transition: all 250ms ease-in-out;
+}
+.viewerGo > div > button:hover {
+  background-position: right center;
+}
+@keyframes fromLeft {
+  0% {
+    transform: translate(-400%, -50%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+/*
+4. userGoCss.
+*/
+.userGo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  animation: fromRight 800ms ease-in-out forwards;
+}
+.userGo > div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding: 10px;
+  background: #fefefe;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  border-top: 15px solid #0af;
+}
+.userGo > div > p {
+  align-self: flex-start;
+  font-size: 22px;
+  font-weight: 500;
+  color: #303030;
+  margin: 0 0 15px 0;
+}
+.userGo > div > form {
+  display: flex;
+  flex-direction: column;
+}
+.userGo > div > form > input {
+  padding: 5px;
+  font-size: 20px;
+  color: #303030;
+  font-weight: 400;
+  margin: 10px 0;
+  border: 2px solid #eaeaea;
+  border-radius: 4px;
+}
+.userGo > div > form > input:last-child {
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  font-size: 20px;
+  color: #303030;
+  font-weight: 400;
+  cursor: pointer;
+  margin: 5px 0;
+  background-image: linear-gradient(
+    90deg,
+    rgba(219, 223, 222, 1) 0%,
+    rgba(14, 252, 222, 1) 50%,
+    rgba(0, 255, 119, 1) 100%
+  );
+  background-size: 200% auto;
+  transition: all 250ms ease-in-out;
+}
+.userGo > div > form > input:last-child:hover {
+  background-position: right center;
+}
+@keyframes fromRight {
+  0% {
+    transform: translate(400%, -50%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
